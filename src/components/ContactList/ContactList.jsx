@@ -14,7 +14,12 @@ import { List } from './ContactList.styled';
  }
 
  ContactList.propTypes = {
-   filterContacts: PropTypes.array.isRequired,
+   filterContacts: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })),
    onRemoveContact: PropTypes.func.isRequired,
  }
 

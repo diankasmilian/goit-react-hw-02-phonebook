@@ -19,7 +19,7 @@
   }
 
   onAddContact = (data) => {
-const identicalName = this.state.contacts.find(contact => contact.name === data.name);
+const identicalName = this.state.contacts.find(contact => contact.name.toLowerCase() === data.name.toLowerCase());
 
 const finalContact = {
   ...data,
@@ -34,15 +34,6 @@ identicalName ? alert(`${data.name} is already in contacts`) : this.setState({
 
 
 
-  }
-
-  onFilterContact = (filter) => {
-    const filteredContacts = this.state.contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter)
-    );
-   this.setState(prevState => ({
-    contacts: (filteredContacts.length === 0) ? prevState : filteredContacts,
-   }))
   }
 
   handleFilterChange = (e) => {
